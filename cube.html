@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cube Tic Tac Toe</title>
+    <link rel="stylesheet" href="cube.css">
+    <link rel="stylesheet" href="tic_tac_toe.css">
+</head>
+<header>
+    Game Time
+</header>
+<body>
+    
+        <div id="message">Welcome, <span id="playerName"></span>!</div>
+        <div id="score">
+            <div>Player: <span id="playerScore">0</span></div>
+            <div>Computer: <span id="computerScore">0</span></div>
+        </div>
+        
+
+        <div class=Box >
+            <div class="split__left"></div>
+             <div class="cube">
+                <div class="face front">
+                    <div id="tic-tac-toe-front"></div>
+                </div>
+                <div class="face back">
+                    <div id="tic-tac-toe-back"></div>
+                </div>
+                <div class="face top">
+                    <div id="tic-tac-toe-top"></div>
+                </div>
+                <div class="face bottom">
+                    <div id="tic-tac-toe-bottom"></div>
+                </div>
+                <div class="face left">
+                    <div id="tic-tac-toe-left"></div>
+                </div>
+                <div class="face right">
+                    <div id="tic-tac-toe-right"></div>
+                </div>
+            </div>
+        
+           
+        </div>
+        <div class="game-interaction">
+           
+            <label class="switch">
+                <input type="checkbox" id="toggleMove">
+                <span class="slider round"></span>
+              </label>
+            
+            <button class="btn-res" id="resetBtn">Reset Game</button>
+            <div>
+                <button  class="btn-hvh" id="humanVsHuman">Human vs Human</button>
+                <button  class="btn-hvc" id="humanVsComputer">Human vs Computer</button>
+            </div>
+        
+       
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="tic_tac_toe.js"></script>
+    <script src="cube.js"></script>
+</body>
+</html>

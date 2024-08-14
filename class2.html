@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+   <!-- <script src = "class5.js"></script> --> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+#colorBox {
+            width: 200px;
+            height: 200px;
+            background-color: lightblue;
+            margin: 50px;
+        }
+
+    .box {
+        padding: 10px;
+        border: 1px solid #000;
+        width: 200px;
+        margin-bottom: 20px;
+    }
+    .highlight {
+        background-color: yellow;
+        font-weight: bold;
+    }
+
+    .hoverDiv {
+            padding: 20px;
+            border: 1px solid #000;
+            display: inline-block;
+        }
+
+        .red {
+            color: red;
+        }
+
+
+</style>
+
+<body>
+    <h1>THis is heading </h1>
+    <p class="paragraph">This is a paragraph.</p>
+    <ul id="unordered-list">
+        <li>List item 1</li>
+        <li>List item 2</li>
+        <li>List item 3</li>
+    </ul>
+
+    <div id = "content">Check ths out</div>
+    
+    <div class="box">Original Text</div>
+    <p class="description">This is some placeholder text in the paragraph.</p>
+    <button id="changeTextBtn">Change Text</button>
+    <button id="toggleClassBtn">Toggle Class and Style</button>
+
+    <button onclick="alert('Button clicked!')">Click Me!</button>
+    <br><br>
+    <!-- Input field with inline event handler -->
+    <input type="text" placeholder="Type something..." oninput="console.log(this.value)">
+
+    <div id="hoverDiv">Hover over me!</div>
+
+<br><br>
+
+<!-- Text area with placeholder text -->
+<textarea id="keyArea" placeholder="Press any key..."></textarea>
+
+<br><br>
+
+<!-- Paragraph to display key code -->
+<p id="keyCodeDisplay">Key code will be displayed here.</p>
+
+<ul id="itemList">
+    <li>Item 1</li>
+    <li>Item 2</li>
+    <li>Item 3</li>
+</ul>
+
+<button id="toggleColorBtn">Toggle Color</button>
+
+<div id="colorBox"></div>
+
+
+</body>
+</html>
+
+<script>
+    const heading = document.getElementsByTagName('h1')[0];
+
+console.log(heading);
+
+const paragraph = document.getElementsByClassName('paragraph')[0];
+
+console.log(paragraph);
+
+const unorderedlist = document.getElementById('unordered-list')[0];
+
+console.log(`this is unordered-list: ${unorderedlist}`);
+
+const listitems = document.getElementsByTagName('li');
+console.log(`this is list-Items ${listitems}`);
+
+for (let i = 0; i < listitems.length; i++) {
+    console.log(`list item: ${listitems[i]}`);
+}
+
+// Access elements
+const box = document.querySelector('.box');
+        const changeTextBtn = document.getElementById('changeTextBtn');
+        const toggleClassBtn = document.getElementById('toggleClassBtn');
+
+        // Change text button event listener
+        changeTextBtn.addEventListener('click', () => {
+            box.textContent = 'Text Changed!';
+        });
+
+        // Toggle class and style button event listener
+        toggleClassBtn.addEventListener('click', () => {
+            box.classList.toggle('highlight');
+        });
+
+        //Create a New Section:
+//Write a function createSection() that creates a new<section> element with the following properties:
+//The section should have a class of "new-section".
+//It should contain a heading <h2> with the text "NewSection".
+//It should contain a paragraph <p> with the text"This is a dynamically added section.".
+//Add the Section to the DOM:
+//Append this new section to a <div> with the id"content".
+
+    const createSection = () => {
+    // Create a new section element
+    const section = document.createElement('section');
+    section.classList.add('new-section');
+
+    // Create a new heading element and set its text
+    const h2 = document.createElement('h2');
+    h2.textContent = 'New Section';
+
+    // Create a new paragraph element and set its text
+    const p = document.createElement('p');
+    p.classList.add('para');
+    p.textContent = 'This is a dynamically added section.';
+
+    // Append the heading and paragraph to the section
+    section.appendChild(h2);
+    section.appendChild(p);
+
+    // Append the new section to the div with id "content"
+    const contentDiv = document.getElementById('content');
+    contentDiv.appendChild(section);
+    
+};
+
+// Call the function to create and add the new section
+createSection();
+
+//Write a function removeSection() thatremoves the last section with the class "new-section" from the "content" div.
+
+// Function to remove the last section with the class "new-section" from the "content" div
+// Function to remove the last section with the class "new-section" from the "content" div
+const removeSection = () => {
+    const contentDiv = document.getElementById('content');
+    const sections = contentDiv.getElementsByClassName('new-section');
+    if (sections.length > 0) {
+        contentDiv.removeChild(sections[sections.length - 1]);
+    }
+};
+
+// Function to create and insert a new heading before the first paragraph in the first section of the "content" div
+const insertHeadingBefore = () => {
+    const h3 = document.createElement('h3');
+    h3.textContent = 'Inserted Heading';
+    const contentDiv = document.getElementById('content');
+    const section = contentDiv.querySelector('section');
+    if (section) {
+        const p = section.querySelector('p');
+        if (p) {
+            section.insertBefore(h3, p);
+        }
+    }
+};
+
+// Function to modify attributes of the first section with the class "new-section"
+const modifyAttributes = () => {
+    const contentDiv = document.getElementById('content');
+    const section = contentDiv.querySelector('.new-section');
+    if (section) {
+        section.id = 'main-section';
+        const p = section.querySelector('p');
+        if (p) {
+            p.className = 'highlighted-text';
+            console.log('Section ID:', section.id);
+            console.log('Paragraph class:', p.className);
+        }
+    }
+};
+
+// Changes the data-role of the user with data-user-id="456" to "admin“,Logs the updated role to the console using the dataset property.
+
+
+
+const changeUserRole = () => {
+    // Create the div element
+    const userDiv = document.createElement('div');
+
+    userDiv.dataset.userId = '456';
+    userDiv.dataset.role = 'user';
+
+     // Append the div to the content div
+    const contentDive = document.querySelector('#content');
+    contentDive.appendChild(userDiv);
+    // Change the data-role attribute to "admin"
+    userDiv.dataset.role = 'admin';
+    
+    // Log the updated role to the console
+    console.log('Updated role:', userDiv.dataset.role);
+};
+// Call the functions for demonstration purposes
+
+ // Assign a DOM property event handler to the div
+ const hoverDiv = document.getElementById('hoverDiv');
+        hoverDiv.onmouseover = function() {
+            hoverDiv.style.backgroundColor = 'yellow';
+        };
+        hoverDiv.onmouseout = function() {
+            hoverDiv.style.backgroundColor = '';
+        };
+
+        // Assign a DOM property event handler to the text area
+        const keyArea = document.getElementById('keyArea');
+        keyArea.onkeydown = function(event) {
+            const keyCodeDisplay = document.getElementById('keyCodeDisplay');
+            keyCodeDisplay.textContent = 'Key code: ' + event.keyCode;
+        };
+
+    // Add click event listeners to each list item
+    const listItems = document.querySelectorAll('#itemList li');
+        listItems.forEach(item => {
+            item.addEventListener('click', function() {
+                alert(this.textContent);
+            });
+        });
+
+        // Add click event listener to the button to toggle text color
+        const toggleColorBtn = document.getElementById('toggleColorBtn');
+        toggleColorBtn.addEventListener('click', function() {
+            listItems.forEach(item => {
+                item.classList.toggle('red');
+            });
+        });
+
+// Select the div element
+const colorBox = document.getElementById('colorBox');
+
+// Add event listener for mousedown
+colorBox.addEventListener('mousedown', function() {
+    colorBox.style.backgroundColor = 'green';
+});
+
+// Add event listener for mouseup
+colorBox.addEventListener('mouseup', function() {
+    colorBox.style.backgroundColor = 'blue';
+});
+
+// Add event listener for dblclick
+colorBox.addEventListener('dblclick', function() {
+    colorBox.style.backgroundColor = 'purple';
+});
+
+createSection();
+removeSection();
+insertHeadingBefore();
+modifyAttributes();
+changeUserRole();
+
+</script>

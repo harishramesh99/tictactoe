@@ -62,13 +62,13 @@ header{
     width: 100%;
     top: 0; 
    
-    
+
 }
   .cube .face {
     box-sizing: border-box;
     border: 5px solid black;
-    width: 40vmin;
-    height: 40vmin;
+    width: 50vmin;
+    height: 50vmin;
     position: absolute;
     top: 0;
     left: 0;

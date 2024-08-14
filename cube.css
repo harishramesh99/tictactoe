@@ -13,11 +13,10 @@
     background-color: blue;
    
 
-}
+
+  }
 .game-interaction{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
     height: 50px;
     font-family: Arial, sans-serif;
     background-color: #f0f0f0;
